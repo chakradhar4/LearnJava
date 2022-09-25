@@ -1,4 +1,3 @@
-import javax.naming.ldap.ManageReferralControl;
 
 class TestingStringImmutability {
     public static void main(String[] args) {
