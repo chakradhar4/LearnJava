@@ -20,7 +20,6 @@ class SubString {
 
         String[] arr = str.split(" ");
         System.out.println(Arrays.toString(arr)); // [india, is, my, country]
-        
 
     }
 }
