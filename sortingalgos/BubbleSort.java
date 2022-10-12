@@ -1,5 +1,11 @@
 package sortingalgos;
 
+/*
+time comlexity
+best O(n)
+worst O(n*2)
+average O(n*2)
+ */
 import java.util.Arrays;
 
 /*Bubble sort is a sorting algorithm that compares two 
