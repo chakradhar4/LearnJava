@@ -5,6 +5,7 @@ time comlexity
 best O(n)
 worst O(n*2)
 average O(n*2)
+total comparison-  n(n-1)/2
  */
 import java.util.Arrays;
 
