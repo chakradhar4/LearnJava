@@ -7,6 +7,7 @@ import java.util.Arrays;
  time complexities 
   best O(n)
   Worst O(n*2)
+  bubble sort
  */
 public class InsertionSort {
 
