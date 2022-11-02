@@ -7,7 +7,7 @@ package searchingalgos;
  */
 class BinarySearchIterative {
 
-  public static void binarySearch(int val, int arr[]) {
+  static void binarySearch(int val, int arr[]) {
     int low = 0;
     int high = arr.length - 1; // array is sorted
     while (low <= high) {
