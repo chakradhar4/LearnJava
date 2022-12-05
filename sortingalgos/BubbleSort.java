@@ -1,5 +1,4 @@
 package sortingalgos;
-
 /*
 time comlexity
 best O(n)

@@ -1,25 +1,32 @@
 package linkedlist;
 
 public class SinglyLinkedList {
-    Node head;
+    static Node head;
+    static int size;
+
+    // keep track of the size of list
+    public SinglyLinkedList() {
+        this.size = 0;
+    }
 
     static class Node {
         int val;
         Node next;
-        Node(int val) {
-            val = this.val;
-            next = null;
+
+        public Node(int val) {
+            this.val = val;
+            this.next = null;
+            size++;
         }
     }
 
-    // insert the node in linked list at the start
+    // insert node at the start of the list
     public void insertFirst(int data) {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
             return;
         }
-        Node node = head;
         newNode.next = head;
         head = newNode;
     }
@@ -31,32 +38,70 @@ public class SinglyLinkedList {
             head = newNode;
             return;
         }
-        Node node = head;
-        while (node.next != null) {
-            node = node.next;
+        Node currNode = head;
+        while (currNode.next != null) {
+            currNode = currNode.next;
         }
-        node.next = newNode;
+        currNode.next = newNode;
     }
 
-    // print the list
-    public void printList() {
-        Node node = head;
+    // delete the first element
+    public void deleteFirst() {
+        Node temp = head;
+        head = temp.next;
+        temp.next = null;
+        size--;
+    }
+
+    // delete last element
+    public void deletLast() {
         if (head == null) {
             System.out.println("list is empty");
             return;
         }
-        while (node != null) {
-            System.out.println(node.val);
-            node = node.next;
+        Node temp = head.next;
+        Node currNode = head;
+        while (temp.next != null) {
+            temp = temp.next;
+            currNode = currNode.next;
         }
-        System.out.println();
-        System.out.println("end of the list");
+        currNode.next = null;
+        size--;
     }
 
+    public static int getSize() {
+        return size;
+    }
+
+    // print the list
+    public void printList() {
+        if (head == null) {
+            System.out.println("list is empty");
+            return;
+        }
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.val + " -> ");
+            temp = temp.next;
+        }
+    }
+
+
+    //Iterate the list
+    
     public static void main(String[] args) {
         SinglyLinkedList ll = new SinglyLinkedList();
-        ll.insertFirst(78);
-        ll.insertLast(34);
+        ll.insertFirst(4);
+        ll.insertFirst(44);
+        ll.insertFirst(33);
+        ll.insertFirst(67);
+        ll.insertLast(78);
+        ll.insertLast(90);
+        System.out.println();
+        // ll.printList();
+        ll.deleteFirst();
+        ll.deletLast();
         ll.printList();
+        System.out.println(ll.getSize());
     }
 }
