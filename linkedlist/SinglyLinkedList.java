@@ -73,6 +73,36 @@ public class SinglyLinkedList {
         return size;
     }
 
+    // insert at the nth position
+    public void insertAtIndex(int val, int index) {
+        Node newNode = new Node(val);
+        Node currNode = head;
+        Node nextNode = head.next;
+        int i = 0;
+        while (i <= 3) {
+            currNode = currNode.next;
+            nextNode = nextNode.next;
+        }
+        currNode.next = newNode;
+        newNode.next = nextNode;
+    }
+
+    // reverse linked list
+    public void reverseList() {
+        if (head == null || head.next == null) {
+            return;
+        }
+        Node currNode = head;
+        Node temp = head.next;
+        head.next = null;
+        while (temp.next != null) {
+            temp.next = currNode;
+            currNode = temp;
+            temp = temp.next;
+        }
+        head = temp;
+    }
+
     // print the list
     public void printList() {
         if (head == null) {
@@ -86,9 +116,8 @@ public class SinglyLinkedList {
         }
     }
 
+    // Iterate the list
 
-    //Iterate the list
-    
     public static void main(String[] args) {
         SinglyLinkedList ll = new SinglyLinkedList();
         ll.insertFirst(4);
@@ -97,11 +126,12 @@ public class SinglyLinkedList {
         ll.insertFirst(67);
         ll.insertLast(78);
         ll.insertLast(90);
-        System.out.println();
-        // ll.printList();
-        ll.deleteFirst();
-        ll.deletLast();
         ll.printList();
-        System.out.println(ll.getSize());
+        System.out.println("heello");
+        // ll.deleteFirst();
+        // ll.deletLast();
+        // ll.printList();
+        ll.reverseList();
+        ll.printList();
     }
 }
