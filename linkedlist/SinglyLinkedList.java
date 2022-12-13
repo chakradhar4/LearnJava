@@ -75,16 +75,24 @@ public class SinglyLinkedList {
 
     // insert at the nth position
     public void insertAtIndex(int val, int index) {
+        if (index == 0) {
+            insertFirst(val);
+            return;
+        }
+        if (index == size) {
+            insertLast(val);
+            return;
+        }
         Node newNode = new Node(val);
         Node currNode = head;
-        Node nextNode = head.next;
+        Node temp = head.next;
         int i = 0;
         while (i <= 3) {
             currNode = currNode.next;
-            nextNode = nextNode.next;
+            temp = temp.next;
         }
         currNode.next = newNode;
-        newNode.next = nextNode;
+        newNode.next = temp;A
     }
 
     // reverse linked list
@@ -131,7 +139,8 @@ public class SinglyLinkedList {
         // ll.deleteFirst();
         // ll.deletLast();
         // ll.printList();
-        ll.reverseList();
+        // ll.reverseList();
+        ll.insertAtIndex(3, 55);
         ll.printList();
     }
 }
